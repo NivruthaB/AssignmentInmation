@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import {
@@ -5,6 +6,7 @@ import {
 } from 'recharts';
 import { format, parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
+import { CSVLink } from 'react-csv';
 import FlexWrapper from './styled-components/FlexWrapper';
 import {
   SelectButton, SelectIcon, StyledLabel, StyledSelect,
@@ -21,6 +23,11 @@ const Graph = () => {
   const [showGraphDiv, setShowGraphDiv] = useState(false);
   const [theme, setTheme] = useState('dark');
   const [graphName, setGraphName] = useState('');
+  const [headers] = useState([
+    { label: 'Time', key: 'time' },
+    { label: 'Value', key: 'value' },
+    { label: 'Q', key: 'Quantity' },
+  ]);
 
   // fetching list data to be populated in dropdown
   const fetchListData = async () => {
@@ -181,6 +188,14 @@ const Graph = () => {
           {' '}
           Light
         </div>
+        {graphData?.length
+      && <CSVLink
+        headers={headers}
+        data={graphData}
+        fileName="GraphData.csv"
+      >
+        Export to CSV
+      </CSVLink>}
         <GraphContainer
           width={1000}
           height={400}

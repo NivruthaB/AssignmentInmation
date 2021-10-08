@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+// Solution
+
+This is a web application to fetch a list of data from an API and show the list in a dropdown list.
+The user is allowed to select a value from the list and based on the value selected the graph corresonding to that is displayed below.
+
+Tech Stack used : JavaScript, Styled Components
